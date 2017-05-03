@@ -30,6 +30,8 @@
         <h1> Hello </h1>
 	<h2> Fellow Spring Framework Gurus!!! </h2>
 	<img src="../static/images/NewBannerBOOTS_2.png" th:src="@{images/NewBannerBOOTS_2.png}"/>
+	<h2 th:text="'My hostname is : '+${hostname}" />
+	<h2 th:text="'Version : '+${version}"> </h2>
 </body>
 </html>
 
