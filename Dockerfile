@@ -1,5 +1,5 @@
 FROM openjdk:8
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl wget && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt -y upgrade && apt-get install -y --no-install-recommends ca-certificates curl wget && rm -rf /var/lib/apt/lists/*
 RUN groupadd -g 1001 java \
     && useradd -g 1001 -u 1001 java
 USER 1001
