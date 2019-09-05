@@ -4,5 +4,6 @@ RUN addgroup -g 1001 java \
 USER 1001
 EXPOSE 8080
 EXPOSE 8081
+RUN mkdir /home/java/test
 COPY target/hello-world-0.1.0.jar  /tmp/hello-world-0.1.0.jar
 CMD  ["java","-jar","/tmp/hello-world-0.1.0.jar"]
