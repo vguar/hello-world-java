@@ -13,7 +13,7 @@ public class IndexController {
 
 	private String hostname;
 
-	@Value( "${spring.application.version:v1.0.0}")
+	@Value( "${spring.application.version:v2.0.0}")
 	private String version;
 
 	public IndexController() throws Exception {
