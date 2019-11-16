@@ -34,5 +34,5 @@ jobs:
           name: Push application Docker image
           command: |
               echo ${HELLO_TOKEN} | docker login -u "vguar+helloworld" --password-stdin quay.io
-              docker tag app:latest quay.io/vguar/hello-world-java:latest
-              docker push quay.io/vguar/hello-world-java:latest
+              docker tag app:latest quay.io/vguar/hello-world-java:v1
+              docker push quay.io/vguar/hello-world-java:v1
