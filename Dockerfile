@@ -26,4 +26,4 @@ VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
 EXPOSE 8080
 EXPOSE 8081
 
-CMD  ["java","-jar","${APP_ROOT}/hello-world-2.0.jar"]
+CMD  ["java","-jar","/opt/app-root/hello-world-2.0.jar"]
