@@ -1,6 +1,8 @@
 FROM openjdk:8-jdk-alpine
 RUN addgroup -g 1001 java \
 && adduser -G java -D -u 1001 java
+COPY run /run
+COPY uid_entrypoint /uid_entrypoint
 EXPOSE 8080
 EXPOSE 8081
 RUN chmod g=u /etc/passwd
