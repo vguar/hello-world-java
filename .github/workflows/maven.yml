@@ -6,7 +6,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: ${{ secrets.GKE_CLUSTER_NAME }}
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
-  IMAGE: hello
+  IMAGE: hello-world-java
 
 jobs:
   setup-build-publish-deploy:
@@ -38,9 +38,9 @@ jobs:
         docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:dev" .
 
     # Push the Docker image to Google Container Registry
-    #- name: Publish
-    #  run: |-
-    #    docker push "eu.gcr.io/${{ secrets.GKE_PROJECT }}/oki:dev"
+    - name: Publish
+      run: |-
+        docker push  "gcr.io/$PROJECT_ID/$IMAGE:dev"
 
 
 
