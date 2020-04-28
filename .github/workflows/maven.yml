@@ -35,7 +35,7 @@ jobs:
     
     - name: Build
       run: |-
-        docker build -t hello:dev .
+        docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:dev" .
 
     # Push the Docker image to Google Container Registry
     #- name: Publish
