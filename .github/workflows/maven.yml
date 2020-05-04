@@ -27,6 +27,7 @@ jobs:
         echo ${{ secrets.GKE_SA_KEY }} | base64 -d > /tmp/account.json
         gcloud auth activate-service-account --key-file=/tmp/account.json
         gcloud config set project ${{ secrets.GKE_PROJECT }}
+        gcloud info
 
     # Get the GKE credentials so we can deploy to the cluster
     - run: |-
