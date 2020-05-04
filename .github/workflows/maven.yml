@@ -28,6 +28,7 @@ jobs:
         gcloud auth activate-service-account --key-file=/tmp/account.json
         gcloud config set project ${{ secrets.GKE_PROJECT }}
 
+    # Get the GKE credentials so we can deploy to the cluster
     - run: |-
         gcloud auth configure-docker
         gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone ${{ secrets.GKE_ZONE }}
