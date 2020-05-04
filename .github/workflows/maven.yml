@@ -27,7 +27,6 @@ jobs:
         echo ${{ secrets.GKE_SA_KEY }} | base64 -d > /tmp/account.json
         gcloud auth activate-service-account --key-file=/tmp/account.json
         gcloud config set project ${{ secrets.GKE_PROJECT }}
-        gcloud info
 
     # Get the GKE credentials so we can deploy to the cluster
     - run: |-
@@ -36,12 +35,12 @@ jobs:
     
     - name: Build
       run: |-
-        docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:v1" .
+        docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:dev" .
 
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
-        docker push  "gcr.io/$PROJECT_ID/$IMAGE:v1"
+        docker push  "gcr.io/$PROJECT_ID/$IMAGE:dev"
 
 
 
