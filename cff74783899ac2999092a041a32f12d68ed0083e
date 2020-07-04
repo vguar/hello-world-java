@@ -1,0 +1,1 @@
+{"jobID":"24b20116-e411-755a-b277-27d8cf1a8f81","spec":{"type":"policy","cause":{"Message":"","User":"Vincent Guardiola \u003cvguar99@gmail.com\u003e"},"spec":{"hello-java:deployment/hello-java":{"add":{"automated":"true"},"remove":null}}},"result":null}
