@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hello-java
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-java
+  namespace: hello-java
+  labels:
+    keel.sh/policy: all
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-java
+  template:
+    metadata:
+      labels:
+        app: hello-java
+    spec:
+      containers:
+      - name: hello-java
+        image: quay.io/vguar/hello-world-java
+        env:
+          - name: DD_AGENT_HOST
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: '2'
+            memory: 1024Mi
+          requests:
+            cpu: '1'
+            memory: 1024Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-java-svc
+  namespace: hello-java
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      name: hello-java
+  selector:
+    app: hello-java
+  
