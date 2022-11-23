@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hello World - Container Plateform v1</title>
+	<link rel="stylesheet" href="custom.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div class="content-wrapper">
+		<img src="v1.png"></img>
+		<h2 th:text="'My hostname is : '+${hostname}" />
+		<h2 th:text="'Version : '+${version}"> </h2>
+
+	</div>
+</body>
+
+</html>
