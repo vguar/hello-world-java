@@ -3,12 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-java
-  labels:
-    keel.sh/policy: all
-  annotations:
-    flux.weave.works/automated: 'true'
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: hello-java
@@ -21,7 +17,7 @@ spec:
       - name: hello-java
         image: quay.io/vguar/hello-world-java
         env:
-        - name: DD_AGENT_HOST
+        - name: MY_HOST_IP
           valueFrom:
             fieldRef:
               fieldPath: status.hostIP
@@ -34,15 +30,3 @@ spec:
           requests:
             cpu: '1'
             memory: 1024Mi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello-java-svc
-spec:
-  ports:
-  - port: 80
-    targetPort: 8080
-    name: hello-java
-  selector:
-    app: hello-java

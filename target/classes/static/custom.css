@@ -1,0 +1,18 @@
+body {
+	background-color: #333333;
+	color: #FFFFFF;
+	font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3{	
+    font-weight: 300;
+}
+
+h1{
+	font-size: 52px;
+}
+
+.content-wrapper{
+	margin: 80px;
+	text-align: center;
+}

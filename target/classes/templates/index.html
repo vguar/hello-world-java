@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>HEllo Test</title>
+	<link rel="stylesheet" href="custom.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div class="content-wrapper">
+		<h2 th:text="'My hostname is : '+${hostname}" />
+		<h2 th:text="'Version : '+${version}"> </h2>
+		<img src="giphy.gif"></img>
+	</div>
+</body>
+
+</html>
