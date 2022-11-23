@@ -7,8 +7,12 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  tls:
+  - hosts:
+      - hello.example.com
   rules:
-  - http:
+  - host: "hello.example.com"
+    http:
       paths:
       - path: /
         pathType: Prefix
@@ -17,6 +21,3 @@ spec:
             name: hello-java-svc
             port:
               number: 80
-  tls:
-    - hosts:
-        - hello.example.com
