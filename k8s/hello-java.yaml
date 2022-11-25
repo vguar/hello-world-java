@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hello-java
-        image: quay.io/vguar/hello-world-java:v1
+        image: quay.io/vguar/hello-world-java:v2
         env:
         - name: MY_HOST_IP
           valueFrom:
