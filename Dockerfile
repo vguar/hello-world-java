@@ -9,4 +9,4 @@ RUN chmod 775 /home/java/test
 COPY target/hello-world-0.1.0.jar  /tmp/hello-world-0.1.0.jar
 COPY dd-java-agent.jar /tmp/dd-java-agent.jar
 ADD https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.30.0/opentelemetry-javaagent.jar /tmp/opentelemetry-agent.jar
-CMD  ["java","-jar","/tmp/hello-world-0.1.0.jar","-javaagent","/tmp/opentelemetry-agent.jar", "-Dotel.resource.attributes=service.instance.id=$HOSTNAME"]
+CMD  ["java","-jar","/tmp/hello-world-0.1.0.jar"]
