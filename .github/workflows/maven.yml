@@ -19,25 +19,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # - name: Google Auth
-    #   run: |-
-    #     echo ${{ secrets.GKE_SA_KEY }} | base64 -d > /tmp/account.json
-    #     gcloud auth activate-service-account --key-file=/tmp/account.json
-    #     gcloud config set project ${{ secrets.GKE_PROJECT }}
+    - name: Build
+      run: |-
+        docker build --cache-from=app -t app .
 
-    # # Get the GKE credentials so we can deploy to the cluster
-    # - run: |-
-    #     gcloud auth configure-docker
-    #     gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone ${{ secrets.GKE_ZONE }}
-    
-    # - name: Build
-    #   run: |-
-    #     docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:dev" .
-
-    # # Push the Docker image to Google Container Registry
-    # - name: Publish
-    #   run: |-
-    #     docker push  "gcr.io/$PROJECT_ID/$IMAGE:dev"
-
-
-
+    - name: Publish
+      run: |-
+        echo ${HELLO_TOKEN} | docker login -u "vguar+helloworld" --password-stdin quay.io
+        docker tag app:latest quay.io/vguar/hello-world-java:latest
+        docker push quay.io/vguar/hello-world-java:latest
